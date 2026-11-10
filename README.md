@@ -27,6 +27,8 @@ deathzone
   size <x> <y> <z>
   rotation <rot>
   team <team>
+  privatemessage "Watch out for the death zones!"
+  publicmessage "%player% just died!"
 end
 ```
 
@@ -37,13 +39,17 @@ deathzone
   height <height>
   radius <radius>
   team <team>
+  # Don't send a private message.
+  privatemessage
+  publicmessage "%player% just died!"
 end
 ```
 
-- `team` (optional) - This option restricts the deathzone to only affect tanks of a certain 
-color. 
-If this option is left out, it'll apply to all teams. You may use this option multiple times 
-to specify multiple teams. Supported values:
+- `privatemessage` (optional) - A message to send to the player who died. If not provided, defaults to "You entered a death zone!"; if no second token is provided, sends no message.
+
+- `publicmessage` (optional) - A message to send to all players. Blank by default. Any instances of `%player%` in the message will be replaced with the victim's username.
+
+- `team` (optional) - This option restricts the deathzone to only affect tanks of a certain color.  If this option is left out, it'll apply to all teams. You may use this option multiple times to specify multiple teams. Supported values:
   - 0 - Rogue Team
   - 1 - Red Team
   - 2 - Green Team
